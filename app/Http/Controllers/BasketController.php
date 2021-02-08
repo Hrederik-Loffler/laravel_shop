@@ -12,7 +12,7 @@ class BasketController extends Controller
     private $basket;
 
     public function __construct() {
-        $this->getBasket();
+        $this->getBasket = Basket::getBasket();
     }
 
     /**

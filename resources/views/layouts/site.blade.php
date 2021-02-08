@@ -45,8 +45,11 @@
             <!-- Этот блок расположен справа -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('basket.index') }}">Корзина</a>
-                </li>
+                    <a class="nav-link @if ($position ?? '') text-success @endif" href="{{ route('basket.index') }}">
+                        Корзина
+                        @if ($position ?? '') ({{$position ?? ''}}) @endif
+                    </a>
+                </li> 
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('user.login') }}">Войти</a>
@@ -73,6 +76,9 @@
                             </form>
                         </div>
                     </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user.index') }}">Личный кабинет</a>
+                </li>
                 @endguest
             </ul>
         </div>

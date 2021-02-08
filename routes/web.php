@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,14 @@ Route::name('user.')->prefix('user')->group(function () {
     Route::get('index', [App\Http\Controllers\UserController::class, 'index'])->name('index');
     Auth::routes();
 });
+
+Route::name('admin.')->prefix('admin')->group(function () {
+    Route::get('index', AdminController::class)->name('index');
+});
+
+// Route::namespace('Admin')->name('admin.')->prefix('admin')->middleware('auth', 'admin')->group(function () {
+//     Route::get('index', 'AdminController')->name('index');
+// });
 
 
 Route::get('/', IndexController::class)->name('index');
@@ -48,3 +57,4 @@ Route::post('/basket/plus/{id}', [App\Http\Controllers\BasketController::class, 
 Route::post('/basket/minus/{id}', [App\Http\Controllers\BasketController::class, 'minus'])->where('id', '[0-9]+')->name('basket.minus');
 Route::post('/basket/remove/{id}', [App\Http\Controllers\BasketController::class, 'remove'])->where('id', '[0-9]+')->name('basket.remove');
 Route::post('/basket/clear', [App\Http\Controllers\BasketController::class, 'clear'])->name('basket.clear');
+
