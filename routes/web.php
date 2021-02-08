@@ -15,15 +15,19 @@ use App\Http\Controllers\IndexController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::name('user.')->prefix('user')->group(function () {
+    Route::get('index', [App\Http\Controllers\UserController::class, 'index'])->name('index');
+    Auth::routes();
 });
 
 
 Route::get('/', IndexController::class)->name('index');
 
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -42,5 +46,5 @@ Route::get('/basket/checkout', [App\Http\Controllers\BasketController::class, 'c
 Route::post('/basket/add/{id}', [App\Http\Controllers\BasketController::class, 'add'])->where('id', '[0-9]+')->name('basket.add');
 Route::post('/basket/plus/{id}', [App\Http\Controllers\BasketController::class, 'plus'])->where('id', '[0-9]+')->name('basket.plus');
 Route::post('/basket/minus/{id}', [App\Http\Controllers\BasketController::class, 'minus'])->where('id', '[0-9]+')->name('basket.minus');
-// Route::post('/basket/remove/{id}', [App\Http\Controllers\BasketController::class, 'remove'])->where('id', '[0-9]+')->name('basket.remove');
-// Route::post('/basket/clear', [App\Http\Controllers\BasketController::class, 'clear'])->name('basket.clear');
+Route::post('/basket/remove/{id}', [App\Http\Controllers\BasketController::class, 'remove'])->where('id', '[0-9]+')->name('basket.remove');
+Route::post('/basket/clear', [App\Http\Controllers\BasketController::class, 'clear'])->name('basket.clear');
