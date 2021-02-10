@@ -6,7 +6,7 @@ Inside the web application, customers may register and do their shopping.
 Main user - admin can create/edit category and product with admin panel
 All templates were create with bootstrap
 
-<h2>Installation
+<h2>Installation</h2>
 - After install project you must use **composer install** and generate new artisan key: **php artisan key:generate**
 - Next step set `.env` file with your configuration: DATABASE, USERNAME, DB_PASSWORD
 - You must create databe tables, use **php artisan migrate**
