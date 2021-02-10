@@ -8,6 +8,11 @@ use App\Models\Product;
 
 class Category extends Model
 {
+    protected $fillable = [
+        'name',
+        'slug',
+    ];
+    
     //return all products from selected category
     public function products()
     {   

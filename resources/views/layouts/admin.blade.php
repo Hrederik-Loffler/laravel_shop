@@ -32,13 +32,10 @@
                     <a class="nav-link" href="#">Заказы</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Каталог</a>
+                    <a class="nav-link" href="{{route('catalog.index')}}">Каталог</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Категории</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Бренды</a>
+                    <a class="nav-link" href="">Категории</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Товары</a>

@@ -15,7 +15,8 @@ class AdminController extends Controller
 
 
      //пока не работает, изменил доступ в роутах
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
         $this->middleware('admin');
     }
@@ -26,7 +27,8 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request) {
+    public function __invoke(Request $request)
+    {
         return view('admin.index');
     }
 }

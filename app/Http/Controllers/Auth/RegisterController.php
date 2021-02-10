@@ -73,7 +73,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Сразу после регистрации выполняем редирект и устанавливаем flash-сообщение
+     * Flash-message when user registered and redicrect
      */
     protected function registered(Request $request, $user) {
         return redirect()->route('user.index')

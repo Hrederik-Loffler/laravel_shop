@@ -8,6 +8,13 @@ use App\Models\Category;
 
 class Product extends Model
 {
+    protected $fillable = [
+        'category_id',
+        'name',
+        'slug',
+        'image',
+        'price',
+    ];
     //return category of selected product
     public function category()
     {

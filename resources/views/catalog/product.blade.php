@@ -10,8 +10,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="https://via.placeholder.com/400x400"
-                             alt="" class="img-fluid">
+                        <!-- <img src="https://via.placeholder.com/400x400" alt="" class="img-fluid"> -->
+                        <img src="{{ asset('storage/catalog/product/image/'.$product->image) }}" height="300px" width="400px" alt="">
                     </div>
                     <div class="col-md-6">
                         <p>Цена: {{ number_format($product->price, 2, '.', '') }}</p>

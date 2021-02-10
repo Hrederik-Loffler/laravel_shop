@@ -4,7 +4,8 @@
             <h4>{{ $product->name }}</h4>
         </div>
         <div class="card-body p-0">
-            <img src="https://via.placeholder.com/400x120" alt="" class="img-fluid">
+            <!-- <img src="https://via.placeholder.com/400x120" alt="" class="img-fluid"> -->
+            <img src="{{ asset('storage/catalog/product/image/' . $product->image) }}" min-height="400px" min-width="120px" alt="" class="img-fluid">
         </div>
         <div class="card-footer">
             <a href="{{ route('catalog.product', ['slug' => $product->slug]) }}"

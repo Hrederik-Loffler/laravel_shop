@@ -12,7 +12,7 @@
 <body>
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-        <!-- Бренд и кнопка «Гамбургер» -->
+        <!-- кнопка «Гамбургер» -->
         <a class="navbar-brand" href="{{ route('index') }}">Магазин</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbar-example" aria-controls="navbar-larashop"
@@ -89,14 +89,27 @@
             <h2>Какой-то контент</h2>
         </div>
         <div class="col-md-9">
-            @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-dismissible mt-4" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Закрыть">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    {{ $message }}
-                </div>
-            @endif
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-dismissible mt-0" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Закрыть">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ $message }}
+            </div>
+        @endif
+
+        @if ($errors->any())
+            <div class="alert alert-danger alert-dismissible mt-0" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Закрыть">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
             @yield('content')
         </div>
     </div>
