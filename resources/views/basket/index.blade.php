@@ -40,6 +40,7 @@
                 <th>{{ number_format($basketCost, 2, '.', '') }}</th>
             </tr>
         </table>
+        <a type="submit" class="btn btn-success" href="{{ route('basket.checkout') }}">Оформить заказ</a>
     @else
         <p>Ваша корзина пуста</p>
     @endif

@@ -14,7 +14,15 @@
             @endisset
         </div>
         <div class="col-md-6">
-            <img src="https://via.placeholder.com/600x200" alt="" class="img-fluid">
+            <!-- <img src="https://via.placeholder.com/600x200" alt="" class="img-fluid"> -->
+            @php
+                if ($category->image) {
+                    $url = url('storage/catalog/category/image/' . $category->image);
+                } else {
+                    $url = url('storage/catalog/product/image/default.jpg');
+                }
+            @endphp
+            <img src="{{ $url }}" alt="" class="img-fluid">
         </div>
     </div>
     <form method="post"

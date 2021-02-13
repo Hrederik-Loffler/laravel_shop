@@ -23,7 +23,7 @@
               maxlength="200" rows="3">{{ old('content') ?? $category->content ?? '' }}</textarea>
 </div>
 <div class="form-group">
-    <input type="file" class="form-control-file" name="image" accept="image/png, image/jpeg">
+    <input type="file" class="form-control-file" name="image" accept="image/png, image/jpeg, image/jpg">
 </div>
 @isset($category->image)
     <div class="form-group form-check">

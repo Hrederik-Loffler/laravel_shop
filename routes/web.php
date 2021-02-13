@@ -69,8 +69,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/basket/index', [App\Http\Controllers\BasketController::class, 'index'])->name('basket.index');
 Route::get('/basket/checkout', [App\Http\Controllers\BasketController::class, 'checkout'])->name('basket.checkout');
-// Route::post('/basket/saveorder', [App\Http\Controllers\BasketController::class, 'saveorder'])->name('basket.saveorder');
-// Route::get('/basket/success', [App\Http\Controllers\BasketController::class, 'success'])->name('basket.success');
+Route::post('/basket/saveorder', [App\Http\Controllers\BasketController::class, 'saveorder'])->name('basket.saveorder');
+Route::get('/basket/success', [App\Http\Controllers\BasketController::class, 'success'])->name('basket.success');
 Route::post('/basket/add/{id}', [App\Http\Controllers\BasketController::class, 'add'])->where('id', '[0-9]+')->name('basket.add');
 // Route::post('/basket/plus/{id}', [App\Http\Controllers\BasketController::class, 'plus'])->where('id', '[0-9]+')->name('basket.plus');
 // Route::post('/basket/minus/{id}', [App\Http\Controllers\BasketController::class, 'minus'])->where('id', '[0-9]+')->name('basket.minus');

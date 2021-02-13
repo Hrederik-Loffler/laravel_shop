@@ -46,11 +46,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|max:100',
-            'slug' => 'required|max:100|unique:categories,slug|alpha_dash',
-        ]);
-        $category = Category::create($request->all());
+        $data = $request->all();
+        $data['image'] = $this->imageSaver->upload($request, null, 'category');
+        // $this->validate($request, [
+        //     'name' => 'required|max:100',
+        //     'slug' => 'required|max:100|unique:categories,slug|alpha_dash',
+        // ]);
+        // $category = Category::create($request->all());
+        $category = Category::create($data);
         return redirect()->route('admin.category.show', ['category' => $category->id])->with('success', 'Новая категория успешно создана');
     }
 
@@ -61,7 +64,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Category $category)
-    {
+    {  
         return view('admin.category.show', compact('category'));
     }
 
@@ -85,7 +88,9 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Category $category)
-    {
+    {   
+        $data = $request->all();
+        $data['image'] = $this->imageSaver->upload($request, null, 'category');
         $id = $category->id;
         $this->validate($request, [
             'name' => 'required|max:100',
@@ -100,7 +105,8 @@ class CategoryController extends Controller
              */
             'slug' => 'required|max:100|unique:categories,slug,'.$id.',id|alpha_dash'
         ]);
-        $category->update($request->all());
+        // $category->update($request->all());
+        $category->update($data);
         return redirect()->route('admin.category.show', ['category' => $category->id])->with('success', 'Категория была успешно исправлена');
     }
 

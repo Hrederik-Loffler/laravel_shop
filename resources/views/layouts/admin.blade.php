@@ -35,10 +35,10 @@
                     <a class="nav-link" href="{{route('catalog.index')}}">Каталог</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Категории</a>
+                    <a class="nav-link" href="{{ route('admin.category.index') }}">Категории</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Товары</a>
+                    <a class="nav-link" href="{{ route('admin.product.index') }}">Товары</a>
                 </li>
             </ul>
 
@@ -46,7 +46,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a onclick="document.getElementById('logout-form').submit(); return false"
-                       href="{{ route('user.logout') }}" class="nav-link">Выйти</a>
+                       href="{{ route('admin.index') }}" class="nav-link">Выйти</a>
                 </li>
             </ul>
             <form id="logout-form" action="{{ route('user.logout') }}" method="post" class="d-none">

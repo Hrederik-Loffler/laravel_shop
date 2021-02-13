@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class LoginController extends Controller
 {
@@ -44,8 +45,16 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        return redirect()->route('user.index')
-            ->with('success', 'Вы успешно вошли в личный кабинет');
+        if ($user->admin) {
+            $route = 'admin.index';
+            $message = 'Вы успешно вошли в панель управления';
+            return redirect()->route('admin.index')->with('success', $message);
+        } else {
+            $route = 'user.index';
+            $message = 'Вы успешно вошли в личный кабинет';
+            return redirect()->route($route)->with('success', $message);
+        }
+        // return redirect()->route('user.index')->with('success', 'Вы успешно вошли в личный кабинет');
     }
 
     /**
@@ -55,11 +64,12 @@ class LoginController extends Controller
     {
         // return redirect()->route('user.login')->with('success', 'Вы успешно вышли из личного кабинета');
         $route = 'user.index';
-        $message = 'Вы успешно вошли в личный кабинет';
+        $message = 'Вы успешно вышли из личного кабинета';
         if ($user->admin) {
             $route = 'admin.index';
-            $message = 'Вы успешно вошли в панель управления';
+            $message = 'Вы успешно вышли из панель управления';
         }
+        Cookie::queue(Cookie::forget('basket_id'));
         return redirect()->route($route)->with('success', $message);
     }
 }
