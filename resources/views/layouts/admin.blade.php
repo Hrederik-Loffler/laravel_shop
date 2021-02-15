@@ -10,9 +10,8 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
           crossorigin="anonymous"/>
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/admin.js') }}"></script>
 </head>
 <body>
 <div class="container">
@@ -29,7 +28,7 @@
             <!-- Этот блок расположен слева -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Заказы</a>
+                    <a class="nav-link" href="{{ route('admin.order.index') }}">Заказы</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('catalog.index')}}">Каталог</a>

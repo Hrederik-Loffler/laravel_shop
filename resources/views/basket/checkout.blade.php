@@ -13,7 +13,7 @@
                    required maxlength="255" value="{{ old('email') ?? '' }}">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" name="phone" placeholder="Номер телефона"
+            <input type="text" class="form-control" name="phone" id="phone" placeholder="Номер телефона"
                    required maxlength="255" value="{{ old('phone') ?? '' }}">
         </div>
         <div class="form-group">

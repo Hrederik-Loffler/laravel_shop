@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 
 /*
@@ -36,22 +37,12 @@ Route::group([
     Route::get('index', IndexController::class)->name('index');
     // CRUD for category
     Route::resource('category', CategoryController::class);
-});
-
-
-Route::group([
-    'as' => 'admin.',
-    'prefix' => 'admin',
-    'middleware' => ['auth', 'admin']
-], function () {
-    Route::get('index', IndexController::class)->name('index');
-    Route::resource('category', CategoryController::class);
-    // CRUD for product of category
     Route::resource('product', ProductController::class);
+    Route::resource('order', OrderController::class, ['expect' => [
+        'create', 'store', 'destroy'
+    ]]);
 });
 
-
-// Auth::routes();
 
 Route::get('/', IndexController::class)->name('index');
 
