@@ -21,7 +21,9 @@ use App\Http\Controllers\Admin\ProductController;
 
 Route::name('user.')->prefix('user')->group(function () {
     Route::get('index', [App\Http\Controllers\UserController::class, 'index'])->name('index');
-    Auth::routes();
+    Auth::routes([
+        'register' => false
+    ]);
 });
 
 Route::name('admin.')->prefix('admin')->group(function () {
@@ -33,6 +35,9 @@ Route::group([
     'prefix' => 'admin',
     'middleware' => ['auth', 'admin']
 ], function () {
+    Auth::routes([
+        'register' => false,
+    ]);
     // main page of admin panel
     Route::get('index', IndexController::class)->name('index');
     // CRUD for category

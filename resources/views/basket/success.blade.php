@@ -20,7 +20,6 @@
             <td>{{ $item->name }}</td>
             <td>{{ number_format($item->price, 2, '.', '') }}</td>
             <td>{{ $item->quantity }}</td>
-            <!-- <td>{{ number_format($item->cost, 2, '.', '') }}</td> -->
             <td>{{ number_format($item->quantity * $item->price, 2, '.', '') }}</td>
         </tr>
         @endforeach
@@ -32,7 +31,7 @@
 
     <h2>Ваши данные</h2>
     <p>Имя, фамилия: {{ $order->name }}</p>
-    <p>Адрес почты: <a href="mailto:{{ $order->email }}">{{ $order->email }}</a></p>
+    <!-- <p>Адрес почты: <a href="mailto:{{ $order->email }}">{{ $order->email }}</a></p> -->
     <p>Номер телефона: {{ $order->phone }}</p>
     <p>Адрес доставки: {{ $order->address }}</p>
     @isset ($order->comment)
