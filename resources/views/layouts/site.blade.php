@@ -27,9 +27,6 @@
                     <a class="nav-link" href="{{ route('catalog.index') }}">Каталог</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Доставка</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#">Контакты</a>
                 </li>
             </ul>
@@ -81,7 +78,9 @@
 
     <div class="row">
         <div class="col-md-3">
-            <h2>Какой-то контент</h2>
+            <h1>Андрей</h1>
+            <h2>+380963774077</h2>
+            <h2>+380665230922</h2>
         </div>
         <div class="col-md-9">
         @if ($message = Session::get('success'))
