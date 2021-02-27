@@ -12,10 +12,10 @@ class Category extends Model
         'name',
         'slug',
     ];
-    
+
     //return all products from selected category
     public function products()
-    {   
+    {
         return $this->hasMany(Product::class);
         // return Product::where('category_id', $this->id)->get();
     }

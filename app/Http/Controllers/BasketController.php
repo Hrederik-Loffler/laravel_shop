@@ -5,13 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Basket;
 use App\Models\Models\Order;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Cookie;
-use Symfony\Component\HttpFoundation\Cookie as HttpFoundationCookie;
 
 class BasketController extends Controller
 {
-    
+
     // private $basket;
 
     // public function __construct() {
@@ -61,6 +59,11 @@ class BasketController extends Controller
 
     /**
      * add product to basket with $id
+     *
+     * @param Request $request
+     * @param $id
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function add(Request $request, $id)
     {
@@ -99,7 +102,7 @@ class BasketController extends Controller
 
     public function saveOrder(Request $request)
     {
-        
+
         $basket = Basket::getBasket();
         $user_id = auth()->check() ? auth()->user()->id : null;
         $order = Order::create(

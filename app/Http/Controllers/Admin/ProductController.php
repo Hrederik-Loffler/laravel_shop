@@ -68,7 +68,9 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param \App\Models\Product $product
+     * @param Category $category
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product, Category $category)

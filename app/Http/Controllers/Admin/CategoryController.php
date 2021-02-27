@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Helpers\ImageSaver;
+use Illuminate\Http\Response;
 
 class CategoryController extends Controller
 {
@@ -19,7 +20,7 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -30,7 +31,7 @@ class CategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -42,7 +43,7 @@ class CategoryController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -61,10 +62,10 @@ class CategoryController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(Category $category)
-    {  
+    {
         return view('admin.category.show', compact('category'));
     }
 
@@ -72,7 +73,7 @@ class CategoryController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(Category $category)
     {
@@ -85,10 +86,10 @@ class CategoryController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, Category $category)
-    {   
+    {
         $data = $request->all();
         $data['image'] = $this->imageSaver->upload($request, null, 'category');
         $id = $category->id;
@@ -114,12 +115,12 @@ class CategoryController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Category $category)
     {
         $category->delete();
         return redirect()->route('admin.category.index')->with('success', 'Категория каталога успешно удалена');
-    
+
     }
 }

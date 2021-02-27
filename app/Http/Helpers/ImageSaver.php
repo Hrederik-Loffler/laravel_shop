@@ -2,11 +2,10 @@
 
 namespace App\Http\Helpers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
-class ImageSaver 
+class ImageSaver
 {
     /**
      * Save image when you try to add or edit category/product;
@@ -14,7 +13,7 @@ class ImageSaver
      * @param \Illuminate\Http\Request $request — object HTTP-request
      * @param \App\Models\Item $item — model of CAtegory/Product
      * @param string $dir — place where to save
-     * @return string|null — name of file 
+     * @return string|null — name of file
      **/
     public function upload($request, $item, $dir) {
         $name = $item->image ?? null;
