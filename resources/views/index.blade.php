@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Интернет-магазин</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis ducimus eveniet...</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores corporis...</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur assumenda...</p>
+
+        <img src="{{ asset('storage/catalog/product/image/jiKUBEUiK3iTeq55mDI3siF3TAepX4ajLQRAmylm.jpg') }}" width="100%" alt="">
+
 @endsection

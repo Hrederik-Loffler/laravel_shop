@@ -26,9 +26,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('catalog.index') }}">Каталог</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Контакты</a>
-                </li>
             </ul>
 
             <!-- Этот блок расположен посередине -->
@@ -46,7 +43,7 @@
                         Корзина
                         @if ($position ?? '') ({{$position ?? ''}}) @endif
                     </a>
-                </li> 
+                </li>
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('user.login') }}">Войти</a>
