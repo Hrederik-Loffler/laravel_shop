@@ -9,7 +9,6 @@
             <th width="18%">Дата и время</th>
             <th width="5%">Статус</th>
             <th width="18%">Покупатель</th>
-            <th width="18%">Адрес почты</th>
             <th width="18%">Номер телефона</th>
             <th width="18%">Пользователь</th>
             <th><i class="fas fa-eye"></i></th>
@@ -29,7 +28,6 @@
                     @endif
                 </td>
                 <td>{{ $order->name }}</td>
-                <td><a href="mailto:{{ $order->email }}">{{ $order->email }}</a></td>
                 <td>{{ $order->phone }}</td>
                 <td>
                     @isset($order->user)
@@ -49,5 +47,4 @@
             </tr>
         @endforeach
     </table>
-    {{ $orders->links() }}
 @endsection

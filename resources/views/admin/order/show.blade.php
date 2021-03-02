@@ -41,7 +41,6 @@
 
     <h3 class="mb-3">Данные покупателя</h3>
     <p>Имя, фамилия: {{ $order->name }}</p>
-    <p>Адрес почты: <a href="mailto:{{ $order->email }}">{{ $order->email }}</a></p>
     <p>Номер телефона: {{ $order->phone }}</p>
     <p>Адрес доставки: {{ $order->address }}</p>
     @isset ($order->comment)

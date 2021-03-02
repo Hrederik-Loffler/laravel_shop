@@ -20,10 +20,6 @@
                    required maxlength="255" value="{{ old('name') ?? $order->name ?? '' }}">
         </div>
         <div class="form-group">
-            <input type="email" class="form-control" name="email" placeholder="Адрес почты"
-                   required maxlength="255" value="{{ old('email') ?? $order->email ?? '' }}">
-        </div>
-        <div class="form-group">
             <input type="text" class="form-control" name="phone" id="phone" placeholder="Номер телефона"
                    required maxlength="255" value="{{ old('phone') ?? $order->phone ?? '' }}">
         </div>
