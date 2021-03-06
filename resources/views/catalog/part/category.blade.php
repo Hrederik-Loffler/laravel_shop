@@ -1,5 +1,5 @@
 <div class="col-md-6 mb-4">
-    <div class="card">
+    <div class="card border border-dark">
         <div class="card-header text-center">
             <h4 class="font-weight-bold">{{ $category->name }}</h4>
         </div>
