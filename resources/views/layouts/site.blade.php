@@ -28,7 +28,7 @@
                 </li>
             </ul>
 
-            @if(isset($_SESSION['product']))
+        @if(isset($_SESSION['product']))
                 <!-- Этот блок расположен посередине -->
                 <form class="form-inline my-2 my-lg-0" method="post">
                     @csrf
@@ -39,7 +39,7 @@
                 </form>
             @else
             @endif
-            <!-- Этот блок расположен справа -->
+        <!-- Этот блок расположен справа -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link @if ($position ?? '') text-success @endif" href="{{ route('basket.index') }}">
@@ -112,23 +112,25 @@
 <script>
     var searchInput = document.querySelector("#searchProduct");
 
-    searchInput.addEventListener('keyup', function(){
-        var filter, list, li, a, i;
-        filter = searchInput.value.toUpperCase();
-        list = document.querySelector(".list-products");
-        li = list.querySelectorAll(".item-products");
+    if(searchInput) {
+        searchInput.addEventListener('keyup', function(){
+            var filter, list, li, a, i;
+            filter = searchInput.value.toUpperCase();
+            list = document.querySelector(".list-products");
+            li = list.querySelectorAll(".item-products");
 
-        if (li.length) {
-            for (i = 0; i < li.length; i++) {
-                a = li[i].querySelector(".item-products-name");
-                if (a.textContent.toUpperCase().indexOf(filter) > -1) {
-                    li[i].style.display = "";
-                } else {
-                    li[i].style.display = "none";
+            if (li.length) {
+                for (i = 0; i < li.length; i++) {
+                    a = li[i].querySelector(".item-products-name");
+                    if (a.textContent.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
                 }
             }
-        }
-    });
+        });
+    }
 
     var burger = document.querySelector('.burger-button');
     var body = document.querySelector('body');
