@@ -29,13 +29,16 @@
             </ul>
 
             <!-- Этот блок расположен посередине -->
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search"
-                    placeholder="Поиск по каталогу" aria-label="Search">
-                <button class="btn btn-outline-info my-2 my-sm-0"
-                        type="submit">Искать</button>
-            </form>
-
+            @if (isset($_SESSION['product']))
+                <form class="form-inline my-2 my-lg-0" method="post">
+                    @csrf
+                    <input class="form-control mr-sm-2" type="search"
+                        placeholder="Поиск по каталогу" aria-label="Search">
+                    <button class="btn btn-outline-info my-2 my-sm-0"
+                            type="submit">Искать</button>
+                </form>
+            @else
+            @endif
             <!-- Этот блок расположен справа -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">

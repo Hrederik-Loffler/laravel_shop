@@ -16,6 +16,7 @@ class CatalogController extends Controller
     public function category($slug)
     {
         $category = Category::where('slug', $slug)->firstOrFail();
+        $_SESSION['product'] = 'product';
         //use the model Category for select from database
         return view('catalog.category', compact('category'));
     }
