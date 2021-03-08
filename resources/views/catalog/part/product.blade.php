@@ -1,7 +1,7 @@
-<div class="col-md-6 mb-4">
+<div class="col-md-6 mb-4 item-products">
     <div class="card border border-dark">
         <div class="card-header text-center">
-            <h4>{{ $product->name }}
+            <h4 class="item-products-name">{{ $product->name }}
                 <span style="color: green">{{ $product->price }} грн</span>
             </h4>
         </div>
@@ -11,7 +11,7 @@
         </div>
         <div class="card-footer text-center">
             <a href="{{ route('catalog.product', ['slug' => $product->slug]) }}"
-                class="btn btn-dark">Перейти к товару</a>
+               class="btn btn-dark">Перейти к товару</a>
         </div>
     </div>
 </div>
