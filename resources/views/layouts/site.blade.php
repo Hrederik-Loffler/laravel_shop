@@ -30,7 +30,7 @@
 
             @if(isset($_SESSION['product']))
                 <!-- Этот блок расположен посередине -->
-                <form class="form-inline my-2 my-lg-0">
+                <form class="form-inline my-2 my-lg-0" method="post">
                     @csrf
                     <input id="searchProduct" class="form-control mr-sm-2" type="search"
                            placeholder="Поиск по каталогу" aria-label="Search">
