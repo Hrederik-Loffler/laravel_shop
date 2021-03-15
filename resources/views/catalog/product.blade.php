@@ -22,7 +22,7 @@
                             <label for="input-quantity">Количество</label>
                             <input type="text" name="quantity" id="input-quantity" value="1"
                                 class="form-control mx-2 w-25">
-                            <button type="submit" class="btn btn-success">Добавить в корзину</button>
+                            <button id="bttn-add" type="submit" class="btn btn-success">Добавить в корзину</button>
                         </form>
                         
                     </div>
@@ -41,4 +41,18 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var bttn = document.querySelector('#bttn-add');
+        var link = document.querySelector('.link-basket');
+
+        bttn.addEventListener("click", function() {
+            sessionStorage.setItem('added-product', 'worked');
+        })
+
+        if (sessionStorage.getItem("added-product")) {
+            link.classList.add('added-to-basket');
+        }
+    })
+</script>
 @endsection

@@ -34,15 +34,15 @@
                     @csrf
                     <input id="searchProduct" class="form-control mr-sm-2" type="search"
                            placeholder="Поиск по каталогу" aria-label="Search">
-                    <button class="btn btn-outline-info my-2 my-sm-0"
-                            type="submit">Искать</button>
+                    <!-- <button class="btn btn-outline-info my-2 my-sm-0"
+                            type="submit">Искать</button> -->
                 </form>
             @else
             @endif
         <!-- Этот блок расположен справа -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link @if ($position ?? '') text-success @endif" href="{{ route('basket.index') }}">
+                    <a class="nav-link link-basket @if ($position ?? '') text-success @endif" href="{{ route('basket.index') }}">
                         Корзина
                         @if ($position ?? '') ({{$position ?? ''}}) @endif
                     </a>
