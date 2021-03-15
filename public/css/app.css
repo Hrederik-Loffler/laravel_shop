@@ -10996,3 +10996,41 @@ body.menu-open .burger-button > .navbar-toggler-icon {
         margin-right: auto;
     }
 }
+
+.link-basket.added-to-basket {
+    position: relative;
+    color: #ffffff;
+}
+
+.link-basket.added-to-basket::before {
+    content: '';
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: 2px;
+    right: -4px;
+    background-color: #ff0000;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: infinite-scale 2s infinite alternate;
+}
+.link-basket.added-to-basket::after {
+    content: '1';
+    position: absolute;
+    top: 6px;
+    right: 1px;
+    font-size: 12px;
+    line-height: 10px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+@keyframes infinite-scale {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.25);
+    }
+  }
